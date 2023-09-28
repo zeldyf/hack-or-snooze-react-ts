@@ -1,0 +1,60 @@
+/* Login and signup forms */
+
+.account-form button {
+  width: 4rem;
+  margin-left: 80px;
+}
+
+#signup-form button {
+  width: 8rem;
+}
+
+.account-forms-container {
+  padding-left: 20px;
+}
+
+/* User profile */
+
+.user-profile-box {
+  padding: 10px 20px 20px;
+  font-size: 0.9rem;
+}
+
+.user-profile-box > * {
+  margin: 10px 0;
+}
+
+.new-story-form {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 10px 20px;
+  margin: 0px 9vw;
+  background-color: #f6f6ef;
+  font-size: 10pt;
+  color: #828282;
+}
+
+.account-form {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0px 9vw;
+}
+
+label{
+  padding-right: 5px;
+}
+
+.form-field{
+  margin-top: 10px;
+
+}
+
+input {
+  font-family: monospace;
+  font-size: 10pt;
+}
+
+button {
+  display: block;
+  margin: 10px 0;
+  font-family: monospace;
+  font-size: 10pt;
+}

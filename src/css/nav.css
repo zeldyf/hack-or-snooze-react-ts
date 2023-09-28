@@ -1,0 +1,42 @@
+/* Navigation bar */
+
+nav {
+  display: flex;
+  background-color: #ff6600;
+  align-items: center;
+  padding: 5px 3px;
+  margin: 10px 9vw 0 9vw;
+  border-radius: 3px 3px 0 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 10pt;
+  line-height: 12px;
+}
+
+.navbar-brand {
+  font-weight: 800;
+}
+
+.main-nav-links {
+  margin: 0 10px;
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-link {
+  font-size: 0.85rem;
+  text-decoration: none;
+  margin: 0 3px;
+  color: black;
+}
+
+.nav-right {
+  text-decoration: none;
+  margin-left: auto;
+  text-align: right;
+}
+
+#nav-logout{
+  margin-left: 0;
+}
+
