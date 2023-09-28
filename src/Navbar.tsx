@@ -13,18 +13,14 @@ function Navbar({ loggedIn }: NavbarProps) {
   return (
     <nav className="navbar">
       <div className="navbar-brand">
-        <Link className="nav-link" to="/" id="nav-all">
+        <Link className="nav-link" to="/home" id="nav-all">
           Hack or Snooze
         </Link>
       </div>
       {loggedIn ? (
         <div className="main-nav-links">
           |
-          <Link
-            className="nav-link"
-            to="/submit"
-            id="nav-submit-story"
-          >
+          <Link className="nav-link" to="/submit" id="nav-submit-story">
             submit
           </Link>
           |
