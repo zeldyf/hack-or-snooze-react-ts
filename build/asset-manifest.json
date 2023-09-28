@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/hack-or-snooze-react-ts/static/css/main.ca3015f3.css",
-    "main.js": "/hack-or-snooze-react-ts/static/js/main.f8f55fca.js",
+    "main.js": "/hack-or-snooze-react-ts/static/js/main.d28dd252.js",
     "static/js/787.28cb0dcd.chunk.js": "/hack-or-snooze-react-ts/static/js/787.28cb0dcd.chunk.js",
     "index.html": "/hack-or-snooze-react-ts/index.html",
     "main.ca3015f3.css.map": "/hack-or-snooze-react-ts/static/css/main.ca3015f3.css.map",
-    "main.f8f55fca.js.map": "/hack-or-snooze-react-ts/static/js/main.f8f55fca.js.map",
+    "main.d28dd252.js.map": "/hack-or-snooze-react-ts/static/js/main.d28dd252.js.map",
     "787.28cb0dcd.chunk.js.map": "/hack-or-snooze-react-ts/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ca3015f3.css",
-    "static/js/main.f8f55fca.js"
+    "static/js/main.d28dd252.js"
   ]
 }

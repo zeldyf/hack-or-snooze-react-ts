@@ -45,7 +45,12 @@ function Navbar({ loggedIn }: NavbarProps) {
           </Link>
         ) : null}
         {loggedIn ? (
-          <Link id="nav-logout" className="nav-link" to="/" onClick={logout}>
+          <Link
+            id="nav-logout"
+            className="nav-link"
+            to="/home"
+            onClick={logout}
+          >
             | logout
           </Link>
         ) : null}
