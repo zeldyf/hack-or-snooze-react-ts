@@ -106,7 +106,7 @@ export const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
         console.log("User data on login:", userData);
         setUser({ user: userData.user });
         saveCredentialsinLocalStorage(userData.token, userData.user.username);
-        navigate("/");
+        navigate("/home");
       } else {
         throw new Error("Login failed");
       }
@@ -134,7 +134,7 @@ export const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
         const userData = await response.json();
         setUser({ user: userData.user });
         saveCredentialsinLocalStorage(userData.token, userData.user.username);
-        navigate("/");
+        navigate("/home");
       } else {
         throw new Error("Login failed");
       }
@@ -228,7 +228,7 @@ export const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
             stories: updatedUser.user.stories,
           },
         }));
-        navigate("/");
+        navigate("/home");
       } else {
         throw new Error("Story submit failed");
       }

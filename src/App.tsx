@@ -31,7 +31,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    navigate("/");
+    navigate("/home");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -39,8 +39,8 @@ function App() {
     <div className="app">
       <Navbar loggedIn={isLoggedIn} />
       <Routes>
-        <Route path="/" element={<StoryList stories={stories} />} />
-        <Route path="login" element={<AccountForms />} />
+        <Route path="/home" element={<StoryList stories={stories} />} />
+        <Route path="/login" element={<AccountForms />} />
         <Route path="/submit" element={<StoryForm />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/mystories" element={<MyStories />} />

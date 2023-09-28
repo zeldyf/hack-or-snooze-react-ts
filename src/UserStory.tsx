@@ -45,7 +45,9 @@ export default function UserStory({
         <span className="star" onClick={() => handleStarClick(story)}>
           <FontAwesomeIcon icon={isFavorite ? faStarSolid : faStarRegular} />
         </span>
-        <a className="story-link" href={story.url}>{story.title}</a>
+        <a className="story-link" href={story.url}>
+          {story.title}
+        </a>
         <small>{hostname}</small>
         <small className="story-author">by {story.author}</small>
         <small className="story-posted-by">posted by {story.username}</small>
