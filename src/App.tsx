@@ -31,7 +31,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    navigate("../home");
+    navigate("/home");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
