@@ -1,14 +1,18 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { useUser } from "./UserContext";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import "./css/nav.css";
+import { logout } from "./store/userSlice";
+import { AppDispatch, RootState } from "./store/types";
 
 interface NavbarProps {
   loggedIn: boolean;
 }
 
 function Navbar({ loggedIn }: NavbarProps) {
-  const { logout, user } = useUser();
+  const navigate = useNavigate();
+  const dispatch: AppDispatch = useDispatch();
+  const name = useSelector((state: RootState) => state.user.name);
 
   return (
     <nav className="navbar">
@@ -41,7 +45,7 @@ function Navbar({ loggedIn }: NavbarProps) {
         )}
         {loggedIn ? (
           <Link className="nav-link" to="#" id="nav-user-profile">
-            {user.user.name}
+            {name}
           </Link>
         ) : null}
         {loggedIn ? (
@@ -49,7 +53,10 @@ function Navbar({ loggedIn }: NavbarProps) {
             id="nav-logout"
             className="nav-link"
             to="/home"
-            onClick={logout}
+            onClick={() => {
+              dispatch(logout());
+              navigate("/home")
+            }}
           >
             | logout
           </Link>

@@ -1,37 +1,27 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import Navbar from "./Navbar";
 import AccountForms from "./AccountForms";
 import fetchStories from "./fetchStories";
 import StoryList from "./StoryList";
 import StoryForm from "./StoryForm";
 import Favorites from "./Favorites";
-import { StoryObj, useUser } from "./UserContext";
 import MyStories from "./MyStories";
+import { AppDispatch, RootState } from "./store/types";
+import { autoLogin } from "./fetchUser";
 
 function App() {
-  const [stories, setStories] = useState<StoryObj[]>([]);
-  const [loading, setLoading] = useState(true);
-  const { isLoggedIn } = useUser();
+  const stories = useSelector((state: RootState) => state.stories.data);
+  const dispatch: AppDispatch = useDispatch();
+  const isLoggedIn = localStorage.length !== 0;
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const storiesData: StoryObj[] = await fetchStories();
-        setStories(storiesData);
-      } catch (error) {
-        console.error("Error fetching stories.", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  useEffect(() => {
+    dispatch(autoLogin())
+    console.log("reload")
     navigate("/home");
+    dispatch(fetchStories());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -41,9 +31,10 @@ function App() {
       <Routes>
         <Route path="/home" element={<StoryList stories={stories} />} />
         <Route path="/login" element={<AccountForms />} />
+        {/* 
         <Route path="/submit" element={<StoryForm />} />
         <Route path="/favorites" element={<Favorites />} />
-        <Route path="/mystories" element={<MyStories />} />
+        <Route path="/mystories" element={<MyStories />} /> */}
       </Routes>
     </div>
   );

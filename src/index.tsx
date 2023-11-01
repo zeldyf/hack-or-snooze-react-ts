@@ -3,8 +3,9 @@ import ReactDOM from "react-dom/client";
 import "./css/index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { AuthProvider } from "./UserContext";
 import { HashRouter as Router } from "react-router-dom";
+import { Provider } from "react-redux";
+import { store } from "./store/storeIndex";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -12,9 +13,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Router>
-      <AuthProvider>
+      <Provider store={store}>
         <App />
-      </AuthProvider>
+      </Provider>
     </Router>
   </React.StrictMode>
 );

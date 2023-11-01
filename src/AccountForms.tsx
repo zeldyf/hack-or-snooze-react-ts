@@ -1,14 +1,44 @@
 import { useState } from "react";
-import { useUser } from "./UserContext";
 import "./css/user.css";
+import { useDispatch } from "react-redux";
+import loginUser, { signup } from "./fetchUser";
+import { AppDispatch } from "./store/types";
+import { useNavigate } from "react-router-dom";
 
 function AccountForms() {
-  const { login, signup } = useUser();
   const [loginUsername, setLoginUsername] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [signupName, setSignupName] = useState("");
   const [signupUsername, setSignupUsername] = useState("");
   const [signupPassword, setSignupPassword] = useState("");
+  const dispatch: AppDispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLoginClick = async () => {
+    try {
+      await dispatch(
+        loginUser({ username: loginUsername, password: loginPassword })
+      );
+      navigate("/home");
+    } catch (error) {
+      console.error("Login failed:", error);
+    }
+  };
+
+  const handleSignupClick = async () => {
+    try {
+      await dispatch(
+        signup({
+          username: signupUsername,
+          password: signupPassword,
+          name: signupName,
+        })
+      );
+      navigate("/home");
+    } catch (error) {
+      console.error("Signup failed");
+    }
+  };
 
   return (
     <section className="account-forms-container">
@@ -20,7 +50,7 @@ function AccountForms() {
         onSubmit={(e) => {
           e.preventDefault();
           console.log("submit login");
-          login(loginUsername, loginPassword);
+          handleLoginClick();
         }}
       >
         <h4>Login</h4>
@@ -55,8 +85,7 @@ function AccountForms() {
         method="post"
         onSubmit={(e) => {
           e.preventDefault();
-          console.log("submit login");
-          signup(signupUsername, signupPassword, signupName);
+          handleSignupClick();
         }}
       >
         <h4>Create Account</h4>
