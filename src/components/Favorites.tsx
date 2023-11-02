@@ -1,9 +1,9 @@
-import { StoryObj } from "./store/types";
+import { StoryObj } from "../store/types";
 import Story from "./Story";
-import "./css/stories.css";
+import "../css/stories.css";
 import { isLoggedIn } from "./App";
 import { useSelector } from "react-redux";
-import { RootState } from "./store/types";
+import { RootState } from "../store/types";
 
 function Favorites() {
   const favorites = useSelector((state: RootState) => state.user.favorites);

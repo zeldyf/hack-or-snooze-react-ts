@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import "./css/nav.css";
-import { logout } from "./store/userSlice";
-import { AppDispatch, RootState } from "./store/types";
+import "../css/nav.css";
+import { logout } from "../store/userSlice";
+import { AppDispatch, RootState } from "../store/types";
 
 interface NavbarProps {
   loggedIn: boolean;
@@ -55,7 +55,7 @@ function Navbar({ loggedIn }: NavbarProps) {
             to="/home"
             onClick={() => {
               dispatch(logout());
-              navigate("/home")
+              navigate("/home");
             }}
           >
             | logout

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { newStory } from "./fetchStories";
-import { AppDispatch } from "./store/types";
+import { newStory } from "../store/fetchStories";
+import { AppDispatch } from "../store/types";
 import { useNavigate } from "react-router-dom";
 
 function StoryForm() {

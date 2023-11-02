@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import fetchStories, { deleteStory, newStory } from "../fetchStories";
+import fetchStories, { deleteStory, newStory } from "./fetchStories";
 import { StoryObj } from "./types"
 
 export const storiesSlice = createSlice({

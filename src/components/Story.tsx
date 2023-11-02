@@ -1,4 +1,4 @@
-import { StoryObj } from "./store/types";
+import { StoryObj } from "../store/types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faStar as faStarRegular,
@@ -6,8 +6,8 @@ import {
 } from "@fortawesome/free-regular-svg-icons";
 import { faStar as faStarSolid } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "./store/types";
-import { addOrDeleteFavorite, deleteStory } from "./fetchStories";
+import { AppDispatch } from "../store/types";
+import { addOrDeleteFavorite, deleteStory } from "../store/fetchStories";
 
 export default function Story({
   story,

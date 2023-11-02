@@ -3,13 +3,13 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "./Navbar";
 import AccountForms from "./AccountForms";
-import fetchStories from "./fetchStories";
+import fetchStories from "../store/fetchStories";
 import StoryList from "./StoryList";
 import StoryForm from "./StoryForm";
 import Favorites from "./Favorites";
 import MyStories from "./MyStories";
-import { AppDispatch, RootState } from "./store/types";
-import { autoLogin } from "./fetchUser";
+import { AppDispatch, RootState } from "../store/types";
+import { autoLogin } from "../store/fetchUser";
 
 export const isLoggedIn = () => localStorage.length !== 0;
 

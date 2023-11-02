@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { autoLogin, signup, loginUser } from "../fetchUser";
-import { addOrDeleteFavorite, deleteStory, newStory } from "../fetchStories";
+import { autoLogin, signup, loginUser } from "./fetchUser";
+import { addOrDeleteFavorite, deleteStory, newStory } from "./fetchStories";
 import { StoryObj } from "./types";
 
 const initialState = {
@@ -63,6 +63,7 @@ export const userSlice = createSlice({
 
                 localStorage.setItem('token', action.payload.token);
                 localStorage.setItem('username', action.payload.user.username);
+                console.log(localStorage)
             })
             .addCase(autoLogin.pending, (state) => {
                 state.status = 'loading'

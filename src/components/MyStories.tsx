@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
-import { StoryObj } from "./store/types";
-import "./css/stories.css";
-import { RootState } from "./store/types";
+import { StoryObj } from "../store/types";
+import "../css/stories.css";
+import { RootState } from "../store/types";
 import Story from "./Story";
 
 function MyStories() {

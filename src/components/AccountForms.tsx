@@ -1,8 +1,8 @@
 import { useState } from "react";
-import "./css/user.css";
+import "../css/user.css";
 import { useDispatch } from "react-redux";
-import loginUser, { signup } from "./fetchUser";
-import { AppDispatch } from "./store/types";
+import loginUser, { signup } from "../store/fetchUser";
+import { AppDispatch } from "../store/types";
 import { useNavigate } from "react-router-dom";
 
 function AccountForms() {
