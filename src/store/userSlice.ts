@@ -78,12 +78,11 @@ export const userSlice = createSlice({
                 state.status = "succeeded"
             })
             .addCase(newStory.fulfilled, (state, action) => {
-                console.log(action.payload)
                 state.stories.push(action.payload.story)
             })
             .addCase(deleteStory.fulfilled, (state, action) => {
-                console.log(action.payload.story.storyId)
-                state.stories = state.stories.filter(story => story.storyId !== action.payload.story.storyId)
+                state.stories = state.stories.filter(story => story.storyId !== action.payload.story.storyId);
+                state.favorites = state.favorites.filter(story => story.storyId !== action.payload.story.storyId);
             })
             .addCase(addOrDeleteFavorite.fulfilled, (state, action) => {
                 state.favorites = action.payload.user.favorites
