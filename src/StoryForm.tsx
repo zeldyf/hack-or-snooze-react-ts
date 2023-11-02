@@ -2,9 +2,11 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { newStory } from "./fetchStories";
 import { AppDispatch } from "./store/types";
+import { useNavigate } from "react-router-dom";
 
 function StoryForm() {
   const dispatch: AppDispatch = useDispatch();
+  const navigate = useNavigate();
   const [formValues, setFormValues] = useState({
     author: "",
     title: "",
@@ -26,6 +28,7 @@ function StoryForm() {
           })
         );
         setFormValues({ author: "", title: "", url: "" });
+        navigate("/home");
       }}
     >
       <div className="form-field">

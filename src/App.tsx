@@ -11,7 +11,7 @@ import MyStories from "./MyStories";
 import { AppDispatch, RootState } from "./store/types";
 import { autoLogin } from "./fetchUser";
 
-export const isLoggedIn = localStorage.length !== 0;
+export const isLoggedIn = () => localStorage.length !== 0;
 
 function App() {
   const stories = useSelector((state: RootState) => state.stories.data);
@@ -28,11 +28,11 @@ function App() {
 
   return (
     <div className="app">
-      <Navbar loggedIn={isLoggedIn} />
+      <Navbar loggedIn={isLoggedIn()} />
       <Routes>
         <Route
           path="/home"
-          element={<StoryList stories={stories} loggedIn={isLoggedIn} />}
+          element={<StoryList stories={stories} loggedIn={isLoggedIn()} />}
         />
         <Route path="/login" element={<AccountForms />} />
         <Route path="/submit" element={<StoryForm />} />

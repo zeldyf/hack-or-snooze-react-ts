@@ -27,7 +27,7 @@ function StoryList({
           story={story}
           key={story.storyId}
           isFavorite={isFavorite(story)}
-          loggedIn={isLoggedIn}
+          loggedIn={isLoggedIn()}
           source="storylist"
         />
       ))}
