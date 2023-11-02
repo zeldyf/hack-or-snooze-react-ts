@@ -1,11 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { autoLogin, signup, loginUser } from "../fetchUser";
+import { addOrDeleteFavorite, deleteStory, newStory } from "../fetchStories";
+import { StoryObj } from "./types";
 
 const initialState = {
     createdAt: "",
-    favorites: [],
+    favorites: [] as StoryObj[],
     name: "",
-    stories: [],
+    stories: [] as StoryObj[],
     updatedAt: "",
     username: "",
     status: "idle",
@@ -26,7 +28,6 @@ export const userSlice = createSlice({
 
             localStorage.clear();
         },
-        update: (state, action) => { },
     },
     extraReducers: (builder) => {
         builder
@@ -74,6 +75,17 @@ export const userSlice = createSlice({
                 state.name = action.payload.user.name;
                 state.stories = action.payload.user.stories;
                 state.status = "succeeded"
+            })
+            .addCase(newStory.fulfilled, (state, action) => {
+                console.log(action.payload)
+                state.stories.push(action.payload.story)
+            })
+            .addCase(deleteStory.fulfilled, (state, action) => {
+                console.log(action.payload.story.storyId)
+                state.stories = state.stories.filter(story => story.storyId !== action.payload.story.storyId)
+            })
+            .addCase(addOrDeleteFavorite.fulfilled, (state, action) => {
+                state.favorites = action.payload.user.favorites
             });
     },
 });

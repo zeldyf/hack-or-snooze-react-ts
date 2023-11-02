@@ -1,8 +1,10 @@
 import { useState } from "react";
-import { useUser } from "./UserContext";
+import { useDispatch } from "react-redux";
+import { newStory } from "./fetchStories";
+import { AppDispatch } from "./store/types";
 
 function StoryForm() {
-  const { newStory } = useUser();
+  const dispatch: AppDispatch = useDispatch();
   const [formValues, setFormValues] = useState({
     author: "",
     title: "",
@@ -16,7 +18,13 @@ function StoryForm() {
       id="story-form"
       onSubmit={(e) => {
         e.preventDefault();
-        newStory(formValues.author, formValues.title, formValues.url);
+        dispatch(
+          newStory({
+            author: formValues.author,
+            title: formValues.title,
+            url: formValues.url,
+          })
+        );
         setFormValues({ author: "", title: "", url: "" });
       }}
     >

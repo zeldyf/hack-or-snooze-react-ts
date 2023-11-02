@@ -16,3 +16,24 @@ export type AppThunk<ReturnType = void> = ThunkAction<
 >;
 
 export type AppDispatch = typeof store.dispatch;
+
+export interface User {
+    user: {
+        createdAt: string;
+        favorites: StoryObj[];
+        name: string;
+        stories: StoryObj[];
+        updatedAt: string;
+        username: string;
+    };
+}
+
+export interface StoryObj {
+    author: string;
+    createdAt: string;
+    storyId: string;
+    title: string;
+    updatedAt: string;
+    url: string;
+    username: string;
+}

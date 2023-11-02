@@ -1,10 +1,12 @@
-import { StoryObj, useUser } from "./UserContext";
-import UserStory from "./UserStory";
+import { useSelector } from "react-redux";
+import { StoryObj } from "./store/types";
 import "./css/stories.css";
+import { RootState } from "./store/types";
+import Story from "./Story";
 
 function MyStories() {
-  const { user } = useUser();
-  const favorites = user.user.favorites;
+  const favorites = useSelector((state: RootState) => state.user.favorites);
+  const stories = useSelector((state: RootState) => state.user.stories);
 
   const isFavorite = (story: StoryObj) => {
     return favorites.some((favorite: StoryObj) => {
@@ -14,12 +16,14 @@ function MyStories() {
 
   return (
     <ol className="stories-list">
-      {user.user.stories.length ? (
-        user.user.stories.map((story: StoryObj) => (
-          <UserStory
+      {stories.length ? (
+        stories.map((story: StoryObj) => (
+          <Story
             story={story}
             key={story.storyId}
             isFavorite={isFavorite(story)}
+            loggedIn={true}
+            source="userstory"
           />
         ))
       ) : (
